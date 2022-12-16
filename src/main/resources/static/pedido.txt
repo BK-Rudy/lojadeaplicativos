@@ -1,0 +1,7 @@
+C;1;Bruno Koiasqui Rudy;brunorudy1@gmail.com;088.304.839-66;(41)99861-8208
+J;1;Stardew Valley;25;ConcernedApe;Simulação;2020;Mude-se para o campo e cultive uma nova vida agrícola neste premiado RPG de simulação agrícola sem fim!; true
+J;2;Grand Theft Auto: San Andreas;20;Rockstar Games;Ação e Aventura;2013;Ajude o Carl a salvar a sua família e tomar o controle das ruas!; false
+L;3;Do mil ao milhão: Sem cortar o cafezinho;24;Thiago Nigro;Os três pilares para atingir a independência financeira;2018;E-Book;true
+L;4;Manual de Persuasão do FBI;40;Jack Schafer;Jack Schafer desenvolveu estratégias dinâmicas e inovadoras para entrevistar terroristas e detectar mentiras;2018;Audiolivro;true
+A;5;Universe in a Nutshell;19;2020;Educação;Descubra o seu lugar no universo;Wait But Why & Kurzgesagt
+A;6;Insight Heart;21;2018;Medicina;A expedição do coração humano;ANIMA RES GmbH

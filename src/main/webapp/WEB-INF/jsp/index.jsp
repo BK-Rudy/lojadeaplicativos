@@ -8,14 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Loja de Aplicativo</title>
 </head>
-<body>
-	<div class="container mt-3">
-		<h2>Loja de aplicativo</h2>
-
-		<h3>
-			Bem vindo, para realizar o seu cadastro na nossa loja clique <a
-				href="/usuario">aqui.</a>
-		</h3>
-	</div>
-</body>
+	<body>
+		<h2>Lista de <a href="/usuario/lista">usuários</a></h1>
+	</body>
 </html>

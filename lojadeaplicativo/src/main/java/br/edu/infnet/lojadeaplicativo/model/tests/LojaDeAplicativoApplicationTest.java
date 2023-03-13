@@ -5,9 +5,10 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import br.edu.infnet.lojadeaplicativo.model.domain.Apps;
-import br.edu.infnet.lojadeaplicativo.model.domain.Jogos;
-import br.edu.infnet.lojadeaplicativo.model.domain.Livros;
+
+import br.edu.infnet.lojadeaplicativo.model.domain.App;
+import br.edu.infnet.lojadeaplicativo.model.domain.Jogo;
+import br.edu.infnet.lojadeaplicativo.model.domain.Livro;
 import br.edu.infnet.lojadeaplicativo.model.domain.Pedido;
 import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.exceptions.AnoLancamentoNaoPreenchidoException;
@@ -45,21 +46,17 @@ public class LojaDeAplicativoApplicationTest {
 						break;
 
 					case "J":
-						Jogos j1 = new Jogos(Integer.valueOf(campos[1]), campos[2], Float.valueOf(campos[3]), campos[4],
-								campos[5], campos[6], campos[7], "S".equalsIgnoreCase(campos[8]));
+						Jogo j1 = new Jogo(campos[1], Float.valueOf(campos[2]), campos[3], campos[4], campos[5], Integer.valueOf(campos[6]));
 						sbOut.append(j1.getAplicativo() + "\r\n");
 						break;
 
 					case "A":
-						Apps a1 = new Apps(Integer.valueOf(campos[1]), campos[2], Float.valueOf(campos[3]), campos[4],
-								campos[5], campos[6], campos[7]);
+						App a1 = new App(campos[1], Float.valueOf(campos[2]),campos[3], Integer.valueOf(campos[4]), campos[5], Integer.valueOf(campos[6]));
 						sbOut.append(a1.getAplicativo() + "\r\n");
 						break;
 
 					case "L":
-						Livros l1 = new Livros(Integer.valueOf(campos[1]), campos[2], Float.valueOf(campos[3]),
-								campos[4], campos[5], Integer.valueOf(campos[6]), campos[7],
-								"S".equalsIgnoreCase(campos[8]));
+						Livro l1 = new Livro(campos[1], Float.valueOf(campos[2]), campos[3], campos[4], Integer.valueOf(campos[5]), campos[6]);
 						sbOut.append(l1.getAplicativo() + "\r\n");
 						break;
 

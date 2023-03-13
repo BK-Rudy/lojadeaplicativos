@@ -4,10 +4,8 @@ public class Usuario {
 
 	private Integer id;
 	private String nome;
-	private String sobrenome;
-	private String senha;
 	private String email;
-	private String telefone;
+	private String senha;
 	private String tipo;
 
 	public Usuario() {
@@ -16,38 +14,14 @@ public class Usuario {
 
 	public Usuario(String email, String senha) {
 		this();
-		this.setEmail(email);
-		this.setSenha(senha);
+		this.email = email;
+		this.senha = senha;
 	}
 
 	public Usuario(String nome, String email, String senha) {
 		this(email, senha);
 		this.setNome(nome);
-	}
 
-	@Override
-	public String toString() {
-		return String.format("O usuário %s tem o email: %s, senha: %s e telefone:  ",
-				nome, 
-				email, 
-				senha, 
-				telefone);
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public String getNome() {
@@ -58,14 +32,6 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -74,19 +40,33 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public String getTipo() {
 		return tipo;
 	}
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	@Override
+	public String toString() {
+
+		return String.format("O usuario tem o nome %s e as credenciais %s e %s.", nome, email, senha);
 	}
 }

@@ -21,7 +21,7 @@
 
 		<h2>Usuários</h2>
 		<c:if test="${empty usuarios}">
-			<h5>Nenhum usuário cadastrado!!!</h5>
+			<h5>Não há usuários cadastrados!</h5>
 		</c:if>
 
 		<c:if test="${not empty usuarios}">
@@ -31,10 +31,8 @@
 				<thead>
 					<th>Id</th>
 					<th>Nome</th>
-					<th>Sobrenome</th>
 					<th>E-mail</th>
 					<th>Senha</th>
-					<th>Telefone</th>
 					<th>Tipo</th>
 					<th></th>
 				</thead>
@@ -43,13 +41,12 @@
 						<tr>
 							<td>${u.id}</td>
 							<td>${u.nome}</td>
-							<td>${u.sobrenome}</td>
 							<td>${u.email}</td>
 							<td>${u.senha}</td>
-							<td>${u.telefone}</td>
-							<td><c:if test="${u.tipo == '1'}">Administrador</c:if> <c:if
-									test="${u.tipo == '2'}">Funcionario</c:if> <c:if
-									test="${u.tipo == '3'}">Cliente</c:if></td>
+							<td>
+							<c:if test="${u.tipo == '1'}">Administrador</c:if> 
+							<c:if test="${u.tipo == '2'}">Desenvolvedor</c:if>
+							</td>
 							<td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
 						</tr>
 					</c:forEach>

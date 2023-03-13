@@ -22,7 +22,7 @@
 		</div>
 		<form action="" method="post"
 			class="container mt-5 d-flex flex-column align-items-center border border-2 rounded pt-5 pb-5">
-			<h2>Usuários</h2>
+			<h2>Login de Usuário</h2>
 			<div class="mb-3 mt-3">
 				<label for="email" class="form-label">E-mail:</label> <input
 					type="email" class="form-control" id="email" placeholder="E-mail"

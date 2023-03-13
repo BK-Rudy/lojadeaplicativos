@@ -18,17 +18,22 @@
 			</div>
 			<ul class="nav navbar-nav d-flex flex-row">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a href="/usuario/lista">Clientes</a></li>
-				<li><a href="#">Apps</a></li>
-				<li><a href="#">Jogos</a></li>
-				<li><a href="#">Livros</a></li>
-				<li><a href="#">Pedidos</a></li>
+				<c:if test="${not empty usuario}">	
+	      			<li><a href="/usuario/lista">Usuário</a></li>
+	      			<li><a href="/criador/lista">Criadores</a></li>
+	      			<li><a href="/app/lista">Apps</a></li>
+	      			<li><a href="/jogo/lista">Jogos</a></li>
+	      			<li><a href="/livro/lista">Livros</a></li>
+      			</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right d-flex flex-row">
-				<li><a href="/usuario"><span
-						class="glyphicon glyphicon-user"></span> Cadastre-se</a></li>
-				<li><a href="/login"><span
-						class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
+				<c:if test="${empty usuario}">
+	      			<li><a href="/usuario"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	      			<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</c:if>
+				<c:if test="${not empty usuario}">
+	      			<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout, ${usuario.nome}</a></li>
+	    		</c:if>
 			</ul>
 		</div>
 	</nav>

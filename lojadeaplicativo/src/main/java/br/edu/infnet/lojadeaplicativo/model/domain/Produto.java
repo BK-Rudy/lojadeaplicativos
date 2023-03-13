@@ -4,25 +4,25 @@ import br.edu.infnet.lojadeaplicativo.model.exceptions.AnoLancamentoNaoPreenchid
 import br.edu.infnet.lojadeaplicativo.model.exceptions.CategoriaAppNaoPreenchidaException;
 import br.edu.infnet.lojadeaplicativo.model.exceptions.FormatoNaoPreenchidoException;
 
-public abstract class Aplicativo {
+public abstract class Produto {
 
-	protected int id;
 	protected String nome;
 	protected float valor;
+	protected String anoLancamento;
 
-	public Aplicativo(int id, String nome, float valor) {
-		this.id = id;
+	public Produto(String nome, float valor, String anoLancamento) {
 		this.nome = nome;
 		this.valor = valor;
+		this.anoLancamento = anoLancamento;
 	}
 
-	public abstract float calcularOferta() throws AnoLancamentoNaoPreenchidoException, FormatoNaoPreenchidoException,
+	public abstract double calcularOferta() throws AnoLancamentoNaoPreenchidoException, FormatoNaoPreenchidoException,
 			CategoriaAppNaoPreenchidaException;
 
 	public String getAplicativo() throws AnoLancamentoNaoPreenchidoException, CategoriaAppNaoPreenchidaException,
 			FormatoNaoPreenchidoException {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.nome);
+		sb.append(this.valor);
 		sb.append(";");
 		sb.append(this.calcularOferta());
 
@@ -31,15 +31,7 @@ public abstract class Aplicativo {
 
 	@Override
 	public String toString() {
-		return String.format("%d;%s;%f", this.id, this.nome, this.valor);
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		return String.format("%d;%s;%f", this.nome, this.valor, this.anoLancamento);
 	}
 
 	public String getNome() {
@@ -56,5 +48,13 @@ public abstract class Aplicativo {
 
 	public void setValor(float valor) {
 		this.valor = valor;
+	}
+
+	public String getAnoLancamento() {
+		return anoLancamento;
+	}
+
+	public void setAnoLancamento(String anoLancamento) {
+		this.anoLancamento = anoLancamento;
 	}
 }

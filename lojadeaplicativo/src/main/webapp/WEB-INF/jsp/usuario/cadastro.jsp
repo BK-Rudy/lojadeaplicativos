@@ -14,40 +14,32 @@
 
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
-	<div
-		class="container mt-5 d-flex flex-column align-items-center border border-2 rounded pt-5 pb-5">
+	<div class="container mt-5 d-flex flex-column align-items-center border border-2 rounded pt-5 pb-5">
+		
 		<h2>Cadastre-se</h2>
+		
 		<form action="/usuario/incluir" method="post" class="w-50">
-			<input type="text" class="form-control form-control-lg mt-3"
-				placeholder="Nome" name="nome"> <input type="text"
-				class="form-control form-control-lg mt-3" placeholder="Sobrenome"
-				name="sobrenome"> <input type="text"
-				class="form-control form-control-lg mt-3" placeholder="E-mail"
-				name="email"> <input type="password"
-				class="form-control form-control-lg mt-3" placeholder="senha"
-				name="senha"> <input type="text"
-				class="form-control form-control-lg mt-3" placeholder="Telefone"
-				name="telefone">
+			<input type="text" class="form-control form-control-lg mt-3" 
+			placeholder="Nome" name="nome"> 
+			
+			<input type="text" class="form-control form-control-lg mt-3" 
+				placeholder="E-mail" name="email"> 
+			
+			<input type="password" class="form-control form-control-lg mt-3" 
+				placeholder="Senha"	name="senha"> 
+				
 			<div class="d-flex justify-content-around">
 				<div class="form-check form-switch mt-3">
-					<label class="form-check-label" for="adm">Administrador</label> <input
-						class="form-check-input" type="radio" id="adm" name="tipo"
-						value="1">
+					<label class="form-check-label" for="adm">Administrador</label> 
+					<input class="form-check-input" type="radio" id="adm" name="tipo" value="1">
 				</div>
 				<div class="form-check form-switch mt-3">
-					<label class="form-check-label" for="funcionario">Funcionário</label>
-					<input class="form-check-input" type="radio" id="funcionario"
-						name="tipo" value="2">
-				</div>
-				<div class="form-check form-switch mt-3">
-					<label class="form-check-label" for="cliente">Cliente</label> <input
-						class="form-check-input" type="radio" id="cliente" name="tipo"
-						value="3">
+					<label class="form-check-label" for="funcionario">Desenvolvedor</label>
+					<input class="form-check-input" type="radio" id="desenvolvedor"	name="tipo" value="2">
 				</div>
 			</div>
 			<button type="submit" class="btn btn-outline-secondary mt-5">Cadastrar</button>
 		</form>
 	</div>
-
 </body>
 </html>

@@ -11,4 +11,3 @@ public class LojaDeAplicativoApplication {
 	}
 
 }
-//teste realizado com o git

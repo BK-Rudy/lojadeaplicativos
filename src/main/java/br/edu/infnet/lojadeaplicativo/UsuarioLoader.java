@@ -19,7 +19,7 @@ public class UsuarioLoader implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		Usuario usuario = new Usuario("Administrador", "admin@admin.com", "senha123");
+		Usuario usuario = new Usuario("Bruno Rudy", "bruno.rudy@al.infnet.edu.br", "bruno.rudy@al.infnet.edu.br", "1");
 
 		usuarioService.incluir(usuario);
 	}

@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Criador;
+import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.service.CriadorService;
 
 @Order(2)
@@ -36,12 +37,17 @@ public class CriadorLoader implements ApplicationRunner {
 				while (linha != null) {
 
 					campos = linha.split(";");
+					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
 
 					Criador criador = new Criador(Integer.parseInt(campos[0]), campos[1], campos[2],
 							campos[3], campos[4]);
 
+					criador.setUsuario(usuario);
+					
 					criadorService.incluir(criador);
-
+					
 					linha = leitura.readLine();
 
 				}

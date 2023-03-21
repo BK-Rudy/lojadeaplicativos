@@ -40,7 +40,7 @@ public class LojaDeAplicativoApplicationTest {
 
 					switch (campos[0].toUpperCase()) {
 					case "C":
-						Usuario compradorC1 = new Usuario(campos[1], campos[2], campos[3]);
+						Usuario compradorC1 = new Usuario(campos[1], campos[2], campos[3], campos[4]);
 						Pedido p1 = new Pedido(compradorC1, "Pedido Realizado");
 						sbOut.append(p1.obterPedido() + "\r\n");
 						break;

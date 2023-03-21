@@ -1,12 +1,25 @@
 package br.edu.infnet.lojadeaplicativo.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Criador {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
 	private String email;
 	private String cnpj;
 	private String numeroCelular;
+	@ManyToOne
+	@JoinColumn(name="idUsuario")
+	private Usuario usuario;
 	
 	public Criador() {
 	}
@@ -74,5 +87,13 @@ public class Criador {
 
 	public void setNumeroCelular(String numeroCelular) {
 		this.numeroCelular = numeroCelular;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

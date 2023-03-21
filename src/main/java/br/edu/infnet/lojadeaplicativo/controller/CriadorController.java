@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Criador;
+import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.service.CriadorService;
 
 @Controller
@@ -25,7 +27,7 @@ public class CriadorController {
 	}
 
 	@GetMapping(value = "/criador/lista")
-	public String telaLista(Model model) {
+	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 
 		model.addAttribute("criadores", criadorService.obterLista());
 
@@ -37,8 +39,9 @@ public class CriadorController {
 	}
 
 	@PostMapping(value = "/criador/incluir")
-	public String incluir(Criador criador) {
+	public String incluir(Criador criador, @SessionAttribute("usuario") Usuario usuario) {
 
+		criador.setUsuario(usuario);
 		criadorService.incluir(criador);
 
 		msg = "A inclusão do criador/autor " + criador.getNome() + " foi realizada com sucesso!";
@@ -49,9 +52,9 @@ public class CriadorController {
 	@GetMapping(value="/criador/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 
-		Criador criador = criadorService.excluir(id);
+		criadorService.excluir(id);
 
-		msg = "A exclusão do criador/autor " + criador.getNome() + " foi realizada com sucesso!";
+		msg = "A exclusão do criador/autor " + id + " foi realizada com sucesso!";
 
 		return "redirect:/criador/lista";
 	}

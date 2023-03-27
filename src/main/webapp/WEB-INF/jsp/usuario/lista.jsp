@@ -44,10 +44,16 @@
 							<td>${u.email}</td>
 							<td>${u.senha}</td>
 							<td>
-							<c:if test="${u.tipo == '1'}">Administrador</c:if> 
-							<c:if test="${u.tipo == '2'}">Desenvolvedor</c:if>
+								<c:if test="${u.tipo == '1'}">Administrador</c:if> 
+								<c:if test="${u.tipo == '2'}">Desenvolvedor</c:if>
 							</td>
-							<td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
+							<td>
+								<form action="/usuario/${u.id}/excluir" method="get">
+									<button type="submit" class="btn btn-danger">
+										<span class="glyphicon glyphicon-remove"></span>
+									</button>
+								</form>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

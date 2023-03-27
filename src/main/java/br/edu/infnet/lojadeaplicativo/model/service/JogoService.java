@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Jogo;
+import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.repository.JogoRepository;
 
 @Service
@@ -14,15 +15,23 @@ public class JogoService {
 	@Autowired
 	private JogoRepository jogoRepository;
 
-	public boolean incluir(Jogo jogo) {
-		return jogoRepository.incluir(jogo);
+	public Jogo incluir(Jogo jogo) {
+		return jogoRepository.save(jogo);
 	}
-	
-	public Jogo excluir(Integer key) {
-		return jogoRepository.excluir(key);
+
+	public void excluir(Integer key) {
+		jogoRepository.deleteById(key);
 	}
-	
+
 	public Collection<Jogo> obterLista() {
-		return jogoRepository.obterLista();
+		return (Collection<Jogo>) jogoRepository.findAll();
 	}
+	
+	public Collection<Jogo> obterLista(Usuario usuario) {
+		return (Collection<Jogo>) jogoRepository.ObterLista(usuario.getId());
+	}
+	
+	public Jogo obterLista(Integer id){
+        return jogoRepository.findById(id).orElse(null);
+    }
 }

@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>LojaDeAplicativo</title>
 </head>
@@ -15,23 +16,24 @@
 
 		<h3>Jogos</h3>
 
-		<form action="/jogo/cadastro">
-			<input type="submit" value="Novo" />
-		</form>
-
-		<c:if test="${not empty jogo }">
+		<c:if test="${not empty jogos}">
 			<div class="alert alert-success">
-				<strong>Atenção!</strong> ${mensagem}
+				<strong>Sucesso!</strong> ${mensagem} Total de jogos cadastrados:
+				${jogos.size()}.
 			</div>
 		</c:if>
 
-		<c:if test="${empty jogos }">
-			<h5>Não há jogos cadastrados!</h5>
+		<c:if test="${empty jogos}">
+			<div class="alert alert-info">
+				<strong>Atenção!</strong> Não há jogos cadastrados.
+			</div>
 		</c:if>
 
-		<c:if test="${not empty jogos }">
-			<h5>Total de jogos cadastrados: ${jogos.size()}</h5>
-		</c:if>
+		<form action="/jogo" method="get">
+			<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+		</form>
 
 		<table class="table table-striped">
 			<thead>
@@ -55,7 +57,13 @@
 						<td>${j.desenvolvedora }</td>
 						<td>${j.genero }</td>
 						<td>${j.idadeRestrita }</td>
-						<th><a href="/jogo/${j.id }/excluir">excluir</a></th>
+						<td>
+							<form action="/jogo/${j.id}/excluir" method="get">
+								<button type="submit" class="btn btn-danger">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

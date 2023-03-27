@@ -10,22 +10,22 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.lojadeaplicativo.model.domain.Criador;
+import br.edu.infnet.lojadeaplicativo.model.domain.Cliente;
 import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
-import br.edu.infnet.lojadeaplicativo.model.service.CriadorService;
+import br.edu.infnet.lojadeaplicativo.model.service.ClienteService;
 
 @Order(2)
 @Component
-public class CriadorLoader implements ApplicationRunner {
+public class ClienteLoader implements ApplicationRunner {
 
 	@Autowired
-	private CriadorService criadorService;
+	private ClienteService clienteService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
 		try {
-			String arq = "criadores.txt";
+			String arq = "clientes.txt";
 
 			try {
 				FileReader fileR = new FileReader(arq);
@@ -37,17 +37,16 @@ public class CriadorLoader implements ApplicationRunner {
 				while (linha != null) {
 
 					campos = linha.split(";");
-					
+
 					Usuario usuario = new Usuario();
 					usuario.setId(1);
 
-					Criador criador = new Criador(Integer.parseInt(campos[0]), campos[1], campos[2],
-							campos[3], campos[4]);
+					Cliente cliente = new Cliente(campos[1], campos[2], campos[3], campos[4]);
 
-					criador.setUsuario(usuario);
-					
-					criadorService.incluir(criador);
-					
+					cliente.setUsuario(usuario);
+
+					clienteService.incluir(cliente);
+
 					linha = leitura.readLine();
 
 				}

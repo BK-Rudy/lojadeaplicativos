@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.App;
+import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.service.AppService;
 
 @Order(3)
@@ -22,6 +23,7 @@ public class AppLoader implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		
 		try {
 			String arq = "apps.txt";
 
@@ -36,9 +38,13 @@ public class AppLoader implements ApplicationRunner {
 
 					campos = linha.split(";");
 
-					App app = new App(campos[0], Float.parseFloat(campos[1]), campos[2], Integer.parseInt(campos[3]),
-							campos[4], Integer.parseInt(campos[5]));
+					App app = new App(campos[1], Float.valueOf(campos[2]), campos[3], Integer.valueOf(campos[4]), campos[5], Integer.valueOf(campos[6]));
+					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
 
+					app.setUsuario(usuario);
+					
 					appService.incluir(app);
 
 					linha = leitura.readLine();

@@ -19,6 +19,7 @@
 		<h2>Cadastre-se</h2>
 		
 		<form action="/usuario/incluir" method="post" class="w-50">
+		
 			<input type="text" class="form-control form-control-lg mt-3" 
 			placeholder="Nome" name="nome"> 
 			

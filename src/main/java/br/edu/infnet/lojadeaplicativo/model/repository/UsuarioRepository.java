@@ -9,6 +9,6 @@ import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer> {
 
-	@Query("from Usuario u where u.email = :email and senha = :senha")
+	@Query("from Usuario u where u.email = :email and u.senha = :senha")
 	Usuario autenticacao(String email, String senha);
 }

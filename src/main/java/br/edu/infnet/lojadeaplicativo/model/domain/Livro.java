@@ -1,25 +1,29 @@
 package br.edu.infnet.lojadeaplicativo.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.lojadeaplicativo.model.exceptions.FormatoNaoPreenchidoException;
 
+@Entity
+@Table(name = "TableLivro")
 public class Livro extends Produto {
 
-    private Integer id;
 	private String autor;
 	private int paginas;
 	private String genero;
+	
+	public Livro() {
+		
+	}
 
-	public Livro(String nome, float valor, String anoLancamento, String autor,
-			int paginas, String genero){
+	public Livro(String nome, float valor, String anoLancamento, String autor, int paginas, String genero){
 		super(nome, valor, anoLancamento);
 
 		this.setAutor(autor);
 		this.setPaginas(paginas);
 		this.setGenero(genero);
 	}
-	// localDeGravacao = autor
-	// numeroDeMusicasPerformadas = paginas
-	// producao = genero
 
 	@Override
 	public double calcularOferta() throws FormatoNaoPreenchidoException {
@@ -44,11 +48,11 @@ public class Livro extends Produto {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append(";");
-		sb.append(this.getAutor());
+		sb.append(autor);
 		sb.append(";");
-		sb.append(this.getPaginas());
+		sb.append(paginas);
 		sb.append(";");
-		sb.append(this.getGenero());
+		sb.append(genero);
 
 		return sb.toString();
 	}
@@ -75,22 +79,5 @@ public class Livro extends Produto {
 
 	public void setGenero(String genero) {
 		this.genero = genero;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public String construirLinha() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(this.toString());
-		sb.append("\r\n");
-
-		return sb.toString();
 	}
 }

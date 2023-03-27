@@ -1,38 +1,16 @@
 package br.edu.infnet.lojadeaplicativo.model.repository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Livro;
 
 @Repository
-public class LivroRepository {
-	private static Integer id = 1;
+public interface LivroRepository extends CrudRepository<Livro, Integer>{
 
-	private static Map<Integer, Livro> mapaLivro = new HashMap<Integer, Livro>();
-
-	public boolean incluir(Livro livro) {
-
-		livro.setId(id++);
-
-		try {
-			mapaLivro.put(livro.getId(), livro);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	public static Livro excluir(Integer key) {
-
-		return mapaLivro.remove(key);
-	}
-
-	public static Collection<Livro> obterLista() {
-		
-		return mapaLivro.values();
-	}
+	@Query("from Livro a where a.usuario.id = :id")
+	List<Livro> ObterLista(Integer id);
 }

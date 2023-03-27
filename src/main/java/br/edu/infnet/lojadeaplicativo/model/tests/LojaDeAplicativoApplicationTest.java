@@ -30,6 +30,8 @@ public class LojaDeAplicativoApplicationTest {
 			BufferedReader leitura = new BufferedReader(file);
 
 			StringBuilder sbOut = new StringBuilder();
+			
+			Usuario usuario = null;
 
 			try {
 				String linha = leitura.readLine();
@@ -40,8 +42,8 @@ public class LojaDeAplicativoApplicationTest {
 
 					switch (campos[0].toUpperCase()) {
 					case "C":
-						Usuario compradorC1 = new Usuario(campos[1], campos[2], campos[3], campos[4]);
-						Pedido p1 = new Pedido(compradorC1, "Pedido Realizado");
+						usuario = new Usuario(campos[1], campos[2], campos[3], campos[4]);
+						Pedido p1 = new Pedido();
 						sbOut.append(p1.obterPedido() + "\r\n");
 						break;
 
@@ -51,7 +53,7 @@ public class LojaDeAplicativoApplicationTest {
 						break;
 
 					case "A":
-						App a1 = new App(campos[1], Float.valueOf(campos[2]),campos[3], Integer.valueOf(campos[4]), campos[5], Integer.valueOf(campos[6]));
+						App a1 = new App(campos[1], Float.valueOf(campos[2]), campos[3], Integer.valueOf(campos[4]), campos[5], Integer.valueOf(campos[6]));
 						sbOut.append(a1.getAplicativo() + "\r\n");
 						break;
 

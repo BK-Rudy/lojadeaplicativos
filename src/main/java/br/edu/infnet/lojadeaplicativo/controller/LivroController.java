@@ -6,53 +6,52 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Livro;
+import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.service.LivroService;
 
 @Controller
 public class LivroController {
-	
-	@Autowired
-	private LivroService livroService;
-	
-	private String msg;
+    @Autowired
+    private LivroService livroService;
 
-	@GetMapping(value = "/livro/cadastro")
-	public String telaCadastro() {
+    private String msgAlerta;
 
-		return "livro/cadastro";
-	}
+    @GetMapping(value = "/livro")
+    public String telaCadastro() {
+        return "livro/cadastro";
+    }
 
-	@GetMapping(value = "/livro/lista")
-	public String telaLista(Model model) {
+    @GetMapping(value = "/livro/lista")
+    public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
+        
+    	model.addAttribute("livros", livroService.obterLista(usuario));
+        model.addAttribute("mensagem", msgAlerta);
+        
+        msgAlerta = null;
 
-		model.addAttribute("livros", livroService.obterLista());
+        return "livro/lista";
+    }
 
-		model.addAttribute("mensagem", msg);
+    @PostMapping(value = "/livro/incluir")
+    public String incluir(Livro livro, @SessionAttribute("usuario") Usuario usuario) {
+    	
+    	livro.setUsuario(usuario);
+    	livroService.incluir(livro);
 
-		msg = null;
+        msgAlerta = "Inclusão realizada com sucesso!";
 
-		return "livro/lista";
-	}
+        return "redirect:/livro/lista";
+    }
 
-	@PostMapping(value = "/livro/incluir")
-	public String incluir(Livro livro) {
+    @GetMapping(value = "/livro/{id}/excluir")
+    public String excluir(@PathVariable Integer id) {
+    	livroService.excluir(id);
 
-		livroService.incluir(livro);
+        msgAlerta = "Exclusão realizada com sucesso!";
 
-		msg = "A inclusão do livro " + livro.getNome() + " foi realizada com sucesso!";
-		
-		return "redirect:/livro/lista";
-	}
-
-	@GetMapping(value="/livro/{id}/excluir")
-	public String excluir(@PathVariable Integer id) {
-
-		Livro livro = livroService.excluir(id);
-
-		msg = "A exclusão do livro " + livro.getNome() + " foi realizada com sucesso!";
-
-		return "redirect:/livro/lista";
-	}
+        return "redirect:/livro/lista";
+    }
 }

@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Jogo;
+import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.service.JogoService;
 
 @Order(4)
@@ -37,9 +38,13 @@ public class JogoLoader implements ApplicationRunner {
 
 					campos = linha.split(";");
 
-					Jogo jogo = new Jogo(campos[0], Float.parseFloat(campos[1]), campos[2], campos[3],
-							campos[4], Integer.parseInt(campos[5]));
+					Jogo jogo = new Jogo(campos[1], Float.valueOf(campos[2]), campos[3], campos[4], campos[5], Integer.valueOf(campos[6]));
+					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
 
+					jogo.setUsuario(usuario);
+					
 					jogoService.incluir(jogo);
 
 					linha = leitura.readLine();

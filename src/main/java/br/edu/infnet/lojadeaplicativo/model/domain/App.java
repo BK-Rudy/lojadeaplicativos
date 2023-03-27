@@ -1,43 +1,45 @@
 package br.edu.infnet.lojadeaplicativo.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.lojadeaplicativo.model.exceptions.CategoriaAppNaoPreenchidaException;
 
+@Entity
+@Table(name = "TableApp")
 public class App extends Produto {
 
-    private Integer id;
 	private int idadeRestrita;
 	private String categoria;
-	private int totalDowloads;
-	
-	public App(String nome, float valor, String anoLancamento, int idadeRestrita, String categoria,
-			int totalDowloads) {
+	private int totalDownloads;
+
+	public App() {
+
+	}
+
+	public App(String nome, float valor, String anoLancamento, int idadeRestrita, String categoria, int totalDownloads) {
 		super(nome, valor, anoLancamento);
-		
+
 		this.setIdadeRestrita(idadeRestrita);
 		this.setCategoria(categoria);
-		this.setTotalDowloads(totalDowloads);
-		
-		//duracao = valor
-		// anoDeGravacao = anoLancamento
-		// tipo = categoria
-		// numeroDeMusicas = idadeRestrita
-		// tempoConteudoBonus = totalDowloads
+		this.setTotalDownloads(totalDownloads);
+
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append(";");
-		sb.append(this.getCategoria());
+		sb.append(categoria);
 		sb.append(";");
-		sb.append(this.getIdadeRestrita());
+		sb.append(idadeRestrita);
 		sb.append(";");
-		sb.append(this.getTotalDowloads());
+		sb.append(totalDownloads);
 
 		return sb.toString();
 	}
-	
+
 	@Override
 	public double calcularOferta() throws CategoriaAppNaoPreenchidaException {
 
@@ -72,29 +74,11 @@ public class App extends Produto {
 		this.categoria = categoria;
 	}
 
-	public int getTotalDowloads() {
-		return totalDowloads;
+	public int getTotalDownloads() {
+		return totalDownloads;
 	}
 
-	public void setTotalDowloads(int totalDowloads) {
-		this.totalDowloads = totalDowloads;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public String construirLinha() {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(this.toString());
-		sb.append("\r\n");
-
-		return sb.toString();
+	public void setTotalDownloads(int totalDownloads) {
+		this.totalDownloads = totalDownloads;
 	}
 }

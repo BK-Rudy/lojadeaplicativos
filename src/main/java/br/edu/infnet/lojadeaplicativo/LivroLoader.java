@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Livro;
+import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.service.LivroService;
 
 @Order(5)
@@ -37,9 +38,13 @@ public class LivroLoader implements ApplicationRunner {
 
 					campos = linha.split(";");
 
-					Livro livro = new Livro(campos[0], Float.parseFloat(campos[1]), campos[2],
-							campos[3], Integer.parseInt(campos[4]), campos[5]);
+					Livro livro = new Livro(campos[1], Float.valueOf(campos[2]), campos[3], campos[4], Integer.valueOf(campos[5]), campos[6]);
+					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
 
+					livro.setUsuario(usuario);
+					
 					livroService.incluir(livro);
 
 					linha = leitura.readLine();

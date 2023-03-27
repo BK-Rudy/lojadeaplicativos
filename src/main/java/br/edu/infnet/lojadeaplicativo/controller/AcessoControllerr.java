@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
-import br.edu.infnet.lojadeaplicativo.model.repository.AcessoRepository;
 import br.edu.infnet.lojadeaplicativo.model.service.UsuarioService;
 
 @Controller
@@ -31,14 +30,13 @@ public class AcessoControllerr {
 	@PostMapping(value = "/login")
 	public String login(Model model, @RequestParam String email, @RequestParam String senha) {
 		
-		Usuario user = new Usuario(email, senha);
+		Usuario usuario = new Usuario(email, senha);
 		
-		user = AcessoRepository.autenticar(user);
-		user = usuarioService.autenticar(user);
+		usuario = usuarioService.autenticar(usuario);
 
-		if(user != null) {
+		if(usuario != null) {
 			
-			model.addAttribute("usuario", user);		
+			model.addAttribute("usuario", usuario);		
 			
 			return "redirect:/home";
 		}
@@ -50,8 +48,8 @@ public class AcessoControllerr {
 	
 	@GetMapping(value = "/logout")
 	public String logout(HttpSession session, SessionStatus status) {
-		status.setComplete();
 		
+		status.setComplete();
 		session.removeAttribute("usuario");
 		
 		return "redirect:/";

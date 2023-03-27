@@ -1,27 +1,31 @@
 package br.edu.infnet.lojadeaplicativo.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.lojadeaplicativo.model.exceptions.AnoLancamentoNaoPreenchidoException;
 
+@Entity
+@Table(name = "TableJogo")
 public class Jogo extends Produto {
 
-    private Integer id;
 	private String desenvolvedora;
 	private String genero;
 	private int idadeRestrita;
 
-	public Jogo(String nome, float valor, String anoLancamento, String desenvolvedora, 
-			String genero, int idadeRestrita) {
+	public Jogo() {
+
+	}
+
+	public Jogo(String nome, float valor, String anoLancamento, String desenvolvedora, String genero,
+			int idadeRestrita) {
 		super(nome, valor, anoLancamento);
 
 		this.setDesenvolvedora(desenvolvedora);
 		this.setGenero(genero);
 		this.setIdadeRestrita(idadeRestrita);
 	}
-	// duracao = valor
-	// diretor = desenvolvedora
-	// linkVideo = genero
-	// numeroDeAtoresFigurantes = idadeRestrita
-	
+
 	@Override
 	public double calcularOferta() throws AnoLancamentoNaoPreenchidoException {
 
@@ -40,17 +44,17 @@ public class Jogo extends Produto {
 
 		return valorReturn;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append(";");
-		sb.append(this.getDesenvolvedora());
+		sb.append(desenvolvedora);
 		sb.append(";");
-		sb.append(this.getGenero());
+		sb.append(genero);
 		sb.append(";");
-		sb.append(this.getIdadeRestrita());
+		sb.append(idadeRestrita);
 
 		return sb.toString();
 	}
@@ -62,7 +66,7 @@ public class Jogo extends Produto {
 	public void setDesenvolvedora(String desenvolvedora) {
 		this.desenvolvedora = desenvolvedora;
 	}
-	
+
 	public String getGenero() {
 		return genero;
 	}
@@ -77,22 +81,5 @@ public class Jogo extends Produto {
 
 	public void setIdadeRestrita(int idadeRestrita) {
 		this.idadeRestrita = idadeRestrita;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public String construirLinha() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(this.toString());
-		sb.append("\r\n");
-
-		return sb.toString();
 	}
 }

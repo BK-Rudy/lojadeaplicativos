@@ -6,13 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-public class Criador {
+@Table(name = "TableCliente")
+public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nome;
 	private String email;
 	private String cnpj;
@@ -21,11 +23,11 @@ public class Criador {
 	@JoinColumn(name="idUsuario")
 	private Usuario usuario;
 	
-	public Criador() {
+	public Cliente() {
+		
 	}
 	
-	public Criador(int id, String nome, String email, String cnpj, String numeroCelular ) {
-		this.id = id;
+	public Cliente(String nome, String email, String cnpj, String numeroCelular ) {
 		this.nome = nome;
 		this.email = email;
 		this.cnpj = cnpj;
@@ -35,9 +37,6 @@ public class Criador {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		
-		sb.append(this.id);
-		sb.append(";");
 		sb.append(this.nome);
 		sb.append(";");
 		sb.append(this.email);
@@ -49,11 +48,11 @@ public class Criador {
 		return sb.toString();
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

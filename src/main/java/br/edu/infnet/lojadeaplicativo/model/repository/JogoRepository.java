@@ -1,38 +1,16 @@
 package br.edu.infnet.lojadeaplicativo.model.repository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Jogo;
 
 @Repository
-public class JogoRepository {
-	private static Integer id = 1;
+public interface JogoRepository extends CrudRepository<Jogo, Integer>{
 
-	private static Map<Integer, Jogo> mapaJogo = new HashMap<Integer, Jogo>();
-
-	public boolean incluir(Jogo jogo) {
-
-		jogo.setId(id++);
-
-		try {
-			mapaJogo.put(jogo.getId(), jogo);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	public static Jogo excluir(Integer key) {
-
-		return mapaJogo.remove(key);
-	}
-
-	public static Collection<Jogo> obterLista() {
-		
-		return mapaJogo.values();
-	}
+	@Query("from Jogo a where a.usuario.id = :id")
+	List<Jogo> ObterLista(Integer id);
 }

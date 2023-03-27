@@ -1,5 +1,5 @@
-Corra para ser feliz;34;2019;Bella Mackie;304;Auto-Ajuda
-O poder da mente;12;2017;Romulo Rodrigues;145;Psicologia
-Harry Potter e a Pedra Filosofal;25;2015;J.K. Rowling;223;Ficção
-Manual de persuasão do FBI;29;2015;Marvin Karlins;256;Saúde, mente e corpo
-365 Melhores charadas;15;2021;Ciranda Cultural;128;Humor
+1;Corra para ser feliz;34;2019;Bella Mackie;304;Auto-Ajuda
+2;O poder da mente;12;2017;Romulo Rodrigues;145;Psicologia
+3;Harry Potter e a Pedra Filosofal;25;2015;J.K. Rowling;223;Ficção
+4;Manual de persuasão do FBI;29;2015;Marvin Karlins;256;Saúde, mente e corpo
+5;365 Melhores charadas;15;2021;Ciranda Cultural;128;Humor

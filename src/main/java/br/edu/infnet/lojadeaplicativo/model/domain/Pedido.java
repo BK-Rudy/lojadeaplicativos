@@ -2,21 +2,46 @@ package br.edu.infnet.lojadeaplicativo.model.domain;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TablePedido")
 public class Pedido {
-
-	private Usuario usuario;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String descricao;
+	private boolean oferta;
 	private LocalDateTime data;
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idCliente")
+	private Cliente cliente;
+	@ManyToMany(cascade = CascadeType.DETACH)
+	private List<Produto> produtos;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 
 	public Pedido() {
-		data = LocalDateTime.now();
+
 	}
 
-	public Pedido(Usuario usuario, String descricao) {
-		this();
-		this.usuario = usuario;
-		this.descricao = descricao;
+	public Pedido(Cliente cliente, List<Produto> produtos) {
+		this.cliente = cliente;
+		this.produtos = produtos;
+
+		data = LocalDateTime.now();
 	}
 
 	public String obterPedido() {
@@ -26,24 +51,18 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-		StringBuilder sb = new StringBuilder();
 
-		sb.append(this.usuario);
-		sb.append(";");
-		sb.append(this.descricao);
-		sb.append(";");
-		sb.append(this.data.format(formato));
+		DateTimeFormatter formatoDataHora = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-		return sb.toString();
+		return String.format("%s;%s;%s", descricao, oferta ? "oferta" : "normal", data.format(formatoDataHora));
 	}
 
-	public Usuario getCliente() {
-		return usuario;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCliente(Usuario usuario) {
-		this.usuario = usuario;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getDescricao() {
@@ -54,7 +73,43 @@ public class Pedido {
 		this.descricao = descricao;
 	}
 
+	public boolean isOferta() {
+		return oferta;
+	}
+
+	public void setOferta(boolean oferta) {
+		this.oferta = oferta;
+	}
+
 	public LocalDateTime getData() {
 		return data;
+	}
+
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

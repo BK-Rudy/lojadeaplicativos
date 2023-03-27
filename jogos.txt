@@ -1,5 +1,5 @@
-Tears of Themis;0;2021;COGNOSPHERE PTE.;Aventura;0
-Stardew Valley;25;2019;Concerned Ape;Simulação;0
-GTA San Andreas;19;2013;Rockstar Games;Ação;18
-Reporter Scary Game;1;2017;AGaming+;Terror;14
-Evoland;2;2015;Playdigious;RPG;0
+1;Tears of Themis;0;2021;COGNOSPHERE PTE.;Aventura;0
+2;Stardew Valley;25;2019;Concerned Ape;Simulação;0
+3;GTA San Andreas;19;2013;Rockstar Games;Ação;18
+4;Reporter Scary Game;1;2017;AGaming+;Terror;14
+5;Evoland;2;2015;Playdigious;RPG;0

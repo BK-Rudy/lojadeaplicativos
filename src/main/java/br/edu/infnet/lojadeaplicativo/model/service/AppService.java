@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.App;
+import br.edu.infnet.lojadeaplicativo.model.domain.Usuario;
 import br.edu.infnet.lojadeaplicativo.model.repository.AppRepository;
 
 @Service
@@ -14,15 +15,23 @@ public class AppService {
 	@Autowired
 	private AppRepository appRepository;
 
-	public boolean incluir(App app) {
-		return appRepository.incluir(app);
+	public App incluir(App app) {
+		return appRepository.save(app);
 	}
-	
-	public App excluir(Integer key) {
-		return appRepository.excluir(key);
+
+	public void excluir(Integer key) {
+		appRepository.deleteById(key);
 	}
-	
+
 	public Collection<App> obterLista() {
-		return appRepository.obterLista();
+		return (Collection<App>) appRepository.findAll();
 	}
+	
+	public Collection<App> obterLista(Usuario usuario) {
+		return (Collection<App>) appRepository.ObterLista(usuario.getId());
+	}
+	
+	public App obterLista(Integer id){
+        return appRepository.findById(id).orElse(null);
+    }
 }

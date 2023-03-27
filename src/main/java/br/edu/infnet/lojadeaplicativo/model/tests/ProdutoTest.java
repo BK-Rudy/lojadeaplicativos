@@ -4,7 +4,7 @@ import br.edu.infnet.lojadeaplicativo.model.domain.App;
 import br.edu.infnet.lojadeaplicativo.model.domain.Jogo;
 import br.edu.infnet.lojadeaplicativo.model.domain.Livro;
 
-public class AplicativoTest {
+public class ProdutoTest {
 
 	public static void main(String[] args) {
 		Jogo j1 = new Jogo("God of War Ragnarok", 200, "2022", "Santa Mônica Studios", "Aventura", 12);

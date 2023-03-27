@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "TableUsuario")
 public class Usuario {
 
 	@Id
@@ -20,8 +22,14 @@ public class Usuario {
 	private String senha;
 	private String tipo;
 	@OneToMany
-	@JoinColumn(name="idUsuario")
-	private List<Criador> criadores;
+	@JoinColumn(name = "idUsuario")
+	private List<Cliente> clientes;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Produto> produtos;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Pedido> pedidos;
 
 	public Usuario() {
 
@@ -38,6 +46,14 @@ public class Usuario {
 		this.setNome(nome);
 		this.setTipo(tipo);
 
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -64,14 +80,6 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
 	public String getTipo() {
 		return tipo;
 	}
@@ -79,18 +87,12 @@ public class Usuario {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
-	public List<Criador> getCriadores() {
-		return criadores;
+
+	public List<Cliente> getClientes() {
+		return clientes;
 	}
 
-	public void setArtistas(List<Criador> criadores) {
-		this.criadores = criadores;
-	}
-
-	@Override
-	public String toString() {
-
-		return String.format("O usuario tem o nome %s e as credenciais %s e %s.", nome, email, senha);
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 }

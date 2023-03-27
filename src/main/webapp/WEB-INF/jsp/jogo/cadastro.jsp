@@ -12,6 +12,7 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 	<div class="container">
+	<h2>Cadastrar Jogo</h2>
 		<form action="/jogo/incluir" method="post">
 			<div class="form-group">
 				<label>Nome do jogo:</label> <input type="text" name="nome"

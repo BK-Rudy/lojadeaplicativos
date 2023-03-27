@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>LojaDeAplicativo</title>
 </head>
@@ -15,23 +16,24 @@
 
 		<h3>Livros</h3>
 
-		<form action="/livro/cadastro">
-			<input type="submit" value="Novo" />
-		</form>
-
-		<c:if test="${not empty livro }">
+		<c:if test="${not empty livros}">
 			<div class="alert alert-success">
-				<strong>Atenção!</strong> ${mensagem}
+				<strong>Sucesso!</strong> ${mensagem} Total de livros cadastrados:
+				${livros.size()}.
 			</div>
 		</c:if>
 
-		<c:if test="${empty livros }">
-			<h5>Não há livros cadastrados!</h5>
+		<c:if test="${empty livros}">
+			<div class="alert alert-info">
+				<strong>Atenção!</strong> Não há livros cadastrados.
+			</div>
 		</c:if>
 
-		<c:if test="${not empty livros }">
-			<h5>Total de livros cadastrados: ${livros.size()}</h5>
-		</c:if>
+		<form action="/livro" method="get">
+			<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+		</form>
 
 		<table class="table table-striped">
 			<thead>
@@ -55,7 +57,13 @@
 						<td>${l.autor }</td>
 						<td>${l.paginas }</td>
 						<td>${l.genero }</td>
-						<th><a href="/livro/${l.id }/excluir">excluir</a></th>
+						<td>
+							<form action="/livro/${l.id}/excluir" method="get">
+								<button type="submit" class="btn btn-danger">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -9,20 +9,20 @@ import br.edu.infnet.lojadeaplicativo.model.exceptions.CategoriaAppNaoPreenchida
 @Table(name = "TableApp")
 public class App extends Produto {
 
-	private int idadeRestrita;
 	private String categoria;
 	private int totalDownloads;
+	private Boolean idadeRestrita = false;
 
 	public App() {
 
 	}
 
-	public App(String nome, float valor, String anoLancamento, int idadeRestrita, String categoria, int totalDownloads) {
+	public App(String nome, float valor, String anoLancamento, Boolean idadeRestrita, String categoria, int totalDownloads) {
 		super(nome, valor, anoLancamento);
 
-		this.setIdadeRestrita(idadeRestrita);
-		this.setCategoria(categoria);
-		this.setTotalDownloads(totalDownloads);
+		this.categoria = categoria;
+		this.totalDownloads = totalDownloads;
+		this.idadeRestrita = (this.idadeRestrita == null) ? false : idadeRestrita;
 
 	}
 
@@ -58,14 +58,6 @@ public class App extends Produto {
 		return valorReturn;
 	}
 
-	public int getIdadeRestrita() {
-		return idadeRestrita;
-	}
-
-	private void setIdadeRestrita(int idadeRestrita) {
-		this.idadeRestrita = idadeRestrita;
-	}
-
 	public String getCategoria() {
 		return categoria;
 	}
@@ -81,4 +73,11 @@ public class App extends Produto {
 	public void setTotalDownloads(int totalDownloads) {
 		this.totalDownloads = totalDownloads;
 	}
+	
+	public boolean isIdadeRestrita() {
+        return idadeRestrita;
+    }
+    public void setIdadeRestrita(boolean idadeRestrita) {
+        this.idadeRestrita = idadeRestrita;
+    }
 }

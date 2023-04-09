@@ -14,10 +14,11 @@ import br.edu.infnet.lojadeaplicativo.model.service.JogoService;
 
 @Controller
 public class JogoController {
-    @Autowired
+   
+	@Autowired
     private JogoService jogoService;
 
-    private String msgAlerta;
+    private String msg;
 
     @GetMapping(value = "/jogo")
     public String telaCadastro() {
@@ -28,9 +29,9 @@ public class JogoController {
     public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
         
     	model.addAttribute("jogos", jogoService.obterLista(usuario));
-        model.addAttribute("mensagem", msgAlerta);
+        model.addAttribute("mensagem", msg);
         
-        msgAlerta = null;
+        msg = null;
 
         return "jogo/lista";
     }
@@ -41,17 +42,24 @@ public class JogoController {
     	jogo.setUsuario(usuario);
     	jogoService.incluir(jogo);
 
-        msgAlerta = "Inclusão realizada com sucesso!";
+        msg = "Jogo cadastrado com sucesso!";
 
         return "redirect:/jogo/lista";
     }
 
     @GetMapping(value = "/jogo/{id}/excluir")
     public String excluir(@PathVariable Integer id) {
-    	jogoService.excluir(id);
+    	 
+    	try {
+             jogoService.excluir(id);
 
-        msgAlerta = "Exclusão realizada com sucesso!";
+             msg = "Jogo excluído com sucesso!";
+         } 
+    	
+    	catch (Exception e) {
+             msg = "Impossível excluir o jogo!";
+         }
 
-        return "redirect:/jogo/lista";
+         return "redirect:/jogo/lista";
     }
 }

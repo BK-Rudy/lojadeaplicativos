@@ -16,18 +16,22 @@ import br.edu.infnet.lojadeaplicativo.model.service.ProdutoService;
 
 @Controller
 public class PedidoController {
-    @Autowired
+    
+	@Autowired
     private PedidoService pedidoService;
-    @Autowired
+    
+	@Autowired
     private ClienteService clienteService;
-    @Autowired
+    
+	@Autowired
     private ProdutoService produtoService;
 
-    private String msgAlerta;
+    private String msg;
 
     @GetMapping(value = "/pedido")
     public String telaCadastro(Model model, @SessionAttribute("usuario") Usuario usuario) {
-        model.addAttribute("clientes", clienteService.obterLista(usuario));
+        
+    	model.addAttribute("clientes", clienteService.obterLista(usuario));
         model.addAttribute("produtos", produtoService.obterLista(usuario));
 
         return "pedido/cadastro";
@@ -35,30 +39,39 @@ public class PedidoController {
 
     @GetMapping(value = "/pedido/lista")
     public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
-        model.addAttribute("pedidos", pedidoService.obterLista(usuario));
-
-        model.addAttribute("mensagem", msgAlerta);
-        msgAlerta = null;
+        
+    	model.addAttribute("pedidos", pedidoService.obterLista(usuario));
+        model.addAttribute("mensagem", msg);
+        
+        msg = null;
 
         return "pedido/lista";
     }
 
     @PostMapping(value = "/pedido/incluir")
     public String incluir(Pedido pedido, @SessionAttribute("usuario") Usuario usuario) {
-        pedido.setUsuario(usuario);
+        
+    	pedido.setUsuario(usuario);
         pedidoService.incluir(pedido);
 
-        msgAlerta = "Inclussão realizada!";
+        msg = "Pedido cadastrado com sucesso!";
 
         return "redirect:/pedido/lista";
     }
 
     @GetMapping(value = "/pedido/{id}/excluir")
     public String excluir(@PathVariable Integer id) {
-        pedidoService.excluir(id);
+        
+    	try {
+			pedidoService.excluir(id);
 
-        msgAlerta = "Exclussão realizada!";
+			msg = "Pedido excluído com sucesso!";
+		}
 
-        return "redirect:/pedido/lista";
+		catch (Exception e) {
+			msg = "Impossível excluir o pedido!";
+		}
+
+		return "redirect:/pedido/lista";
     }
 }

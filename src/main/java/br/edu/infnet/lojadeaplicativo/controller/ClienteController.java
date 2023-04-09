@@ -18,7 +18,7 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    private String msgAlerta;
+    private String msg;
 
     @GetMapping(value = "/cliente")
     public String telaCadastro() {
@@ -29,30 +29,30 @@ public class ClienteController {
     public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 
         model.addAttribute("clientes", clienteService.obterLista(usuario));
+        model.addAttribute("mensagem", msg);
 
-        model.addAttribute("mensagem", msgAlerta);
-
-        msgAlerta = null;
+        msg = null;
 
         return "cliente/lista";
     }
 
     @PostMapping(value = "/cliente/incluir")
     public String incluir(Cliente cliente, @SessionAttribute("usuario") Usuario usuario) {
-        cliente.setUsuario(usuario);
-
+        
+    	cliente.setUsuario(usuario);
         clienteService.incluir(cliente);
 
-        msgAlerta = "Inclussão realizada!";
+        msg = "Cliente cadastrado com sucesso!";
 
         return "redirect:/cliente/lista";
     }
 
     @GetMapping(value = "/cliente/{id}/excluir")
     public String excluir(@PathVariable Integer id) {
-        clienteService.excluir(id);
+        
+    	clienteService.excluir(id);
 
-        msgAlerta = "Exclussão realizada!";
+        msg = "Cliente excluído com sucesso!";
 
         return "redirect:/cliente/lista";
     }

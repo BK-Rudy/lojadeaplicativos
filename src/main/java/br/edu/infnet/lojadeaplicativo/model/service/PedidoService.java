@@ -3,6 +3,8 @@ package br.edu.infnet.lojadeaplicativo.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Pedido;
@@ -11,7 +13,8 @@ import br.edu.infnet.lojadeaplicativo.model.repository.PedidoRepository;
 
 @Service
 public class PedidoService {
-    @Autowired
+    
+	@Autowired
     private PedidoRepository pedidoRepository;
 
     public Pedido incluir(Pedido Pedido) {
@@ -27,7 +30,7 @@ public class PedidoService {
     }
 
     public Collection<Pedido> obterLista(Usuario usuario){
-        return (Collection<Pedido>) pedidoRepository.obterLista(usuario.getId());
+        return (Collection<Pedido>) pedidoRepository.obterLista(usuario.getId(), Sort.by(Direction.ASC, "cliente"));
     }
 
     public Pedido obterLista(Integer id){

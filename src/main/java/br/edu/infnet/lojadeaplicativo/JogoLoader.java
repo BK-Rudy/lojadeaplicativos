@@ -38,7 +38,7 @@ public class JogoLoader implements ApplicationRunner {
 
 					campos = linha.split(";");
 
-					Jogo jogo = new Jogo(campos[1], Float.valueOf(campos[2]), campos[3], campos[4], campos[5], Integer.valueOf(campos[6]));
+					Jogo jogo = new Jogo(campos[1], Float.valueOf(campos[2]), campos[3], campos[4], campos[5], Boolean.valueOf(campos[6]));
 					
 					Usuario usuario = new Usuario();
 					usuario.setId(1);

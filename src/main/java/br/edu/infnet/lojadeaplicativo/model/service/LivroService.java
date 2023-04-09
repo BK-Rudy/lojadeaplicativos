@@ -3,6 +3,8 @@ package br.edu.infnet.lojadeaplicativo.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Livro;
@@ -28,7 +30,7 @@ public class LivroService {
 	}
 	
 	public Collection<Livro> obterLista(Usuario usuario) {
-		return (Collection<Livro>) livroRepository.ObterLista(usuario.getId());
+		return (Collection<Livro>) livroRepository.obterLista(usuario.getId(), Sort.by(Direction.ASC, "nome"));
 	}
 	
 	public Livro obterLista(Integer id){

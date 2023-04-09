@@ -3,6 +3,8 @@ package br.edu.infnet.lojadeaplicativo.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Produto;
@@ -11,7 +13,8 @@ import br.edu.infnet.lojadeaplicativo.model.repository.ProdutoRepository;
 
 @Service
 public class ProdutoService {
-    @Autowired
+    
+	@Autowired
     private ProdutoRepository produtoRepository;
 
     public void excluir(Integer key){
@@ -23,7 +26,7 @@ public class ProdutoService {
     }
 
     public Collection<Produto> obterLista(Usuario usuario){
-        return (Collection<Produto>) produtoRepository.obterLista(usuario.getId());
+        return (Collection<Produto>) produtoRepository.obterLista(usuario.getId(), Sort.by(Direction.ASC, "nome"));
     }
 
     public Produto obterLista(Integer id){

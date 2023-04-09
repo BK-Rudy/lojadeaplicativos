@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="br.edu.infnet.lojadeaplicativo.controller.ClienteController" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/ClienteController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="173" x="361" y="164"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="br.edu.infnet.lojadeaplicativo.controller.JogoController" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/JogoController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="173" x="574" y="164"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="br.edu.infnet.lojadeaplicativo.controller.LojaDeAplicativoController" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/LojaDeAplicativoController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="174" x="787" y="164"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="br.edu.infnet.lojadeaplicativo.controller.AcessoControllerr" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/AcessoControllerr.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="225" x="1001" y="164"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="br.edu.infnet.lojadeaplicativo.controller.PedidoController" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/PedidoController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="194" x="1266" y="164"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="br.edu.infnet.lojadeaplicativo.controller.ProdutoController" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/ProdutoController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1359" y="494"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="br.edu.infnet.lojadeaplicativo.controller.AppController" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/AppController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="705" y="510"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="br.edu.infnet.lojadeaplicativo.controller.LivroController" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/LivroController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="918" y="510"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="br.edu.infnet.lojadeaplicativo.controller.UsuarioController" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/controller/UsuarioController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1134" y="510"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

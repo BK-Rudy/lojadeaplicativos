@@ -22,7 +22,7 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String descricao;
-	private boolean oferta;
+	private boolean oferta = false;
 	private LocalDateTime data;
 	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "idCliente")

@@ -14,44 +14,52 @@ import br.edu.infnet.lojadeaplicativo.model.service.AppService;
 
 @Controller
 public class AppController {
-    @Autowired
-    private AppService appService;
+	
+	@Autowired
+	private AppService appService;
 
-    private String msgAlerta;
+	private String msg;
 
-    @GetMapping(value = "/app")
-    public String telaCadastro() {
-        return "app/cadastro";
-    }
+	@GetMapping(value = "/app")
+	public String telaCadastro() {
+		return "app/cadastro";
+	}
 
-    @GetMapping(value = "/app/lista")
-    public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
-        
-    	model.addAttribute("apps", appService.obterLista(usuario));
-        model.addAttribute("mensagem", msgAlerta);
-        
-        msgAlerta = null;
+	@GetMapping(value = "/app/lista")
+	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 
-        return "app/lista";
-    }
+		model.addAttribute("apps", appService.obterLista(usuario));
+		model.addAttribute("mensagem", msg);
 
-    @PostMapping(value = "/app/incluir")
-    public String incluir(App app, @SessionAttribute("usuario") Usuario usuario) {
-    	
-    	app.setUsuario(usuario);
-    	appService.incluir(app);
+		msg = null;
 
-        msgAlerta = "Inclusão realizada com sucesso!";
+		return "app/lista";
+	}
 
-        return "redirect:/app/lista";
-    }
+	@PostMapping(value = "/app/incluir")
+	public String incluir(App app, @SessionAttribute("usuario") Usuario usuario) {
 
-    @GetMapping(value = "/app/{id}/excluir")
-    public String excluir(@PathVariable Integer id) {
-    	appService.excluir(id);
+		app.setUsuario(usuario);
+		appService.incluir(app);
 
-        msgAlerta = "Exclusão realizada com sucesso!";
+		msg = "App cadastrado com sucesso!";
 
-        return "redirect:/app/lista";
-    }
+		return "redirect:/app/lista";
+	}
+
+	@GetMapping(value = "/app/{id}/excluir")
+	public String excluir(@PathVariable Integer id) {
+
+		try {
+			appService.excluir(id);
+
+			msg = "App excluído com sucesso!";
+		} 
+		
+		catch (Exception e) {
+			msg = "Impossível excluír o App!";
+		}
+
+		return "redirect:/app/lista";
+	}
 }

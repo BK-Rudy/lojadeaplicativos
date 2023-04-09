@@ -11,19 +11,19 @@ public class Jogo extends Produto {
 
 	private String desenvolvedora;
 	private String genero;
-	private int idadeRestrita;
+	private Boolean idadeRestrita = false;
 
 	public Jogo() {
 
 	}
 
 	public Jogo(String nome, float valor, String anoLancamento, String desenvolvedora, String genero,
-			int idadeRestrita) {
+			Boolean idadeRestrita) {
 		super(nome, valor, anoLancamento);
 
-		this.setDesenvolvedora(desenvolvedora);
-		this.setGenero(genero);
-		this.setIdadeRestrita(idadeRestrita);
+		this.desenvolvedora = desenvolvedora;
+		this.genero = genero;
+		this.idadeRestrita = (this.idadeRestrita == null) ? false : idadeRestrita;
 	}
 
 	@Override
@@ -75,11 +75,10 @@ public class Jogo extends Produto {
 		this.genero = genero;
 	}
 
-	public int getIdadeRestrita() {
-		return idadeRestrita;
-	}
-
-	public void setIdadeRestrita(int idadeRestrita) {
-		this.idadeRestrita = idadeRestrita;
-	}
+	public boolean isIdadeRestrita() {
+        return idadeRestrita;
+    }
+    public void setIdadeRestrita(boolean idadeRestrita) {
+        this.idadeRestrita = idadeRestrita;
+    }
 }

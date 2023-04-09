@@ -15,30 +15,34 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
 	<div class="container mt-5 d-flex flex-column align-items-center border border-2 rounded pt-5 pb-5">
-		
+
 		<h2>Cadastre-se</h2>
 		
+		<form action="/cep" class="form-inline" method="post">
+			<label>Cep:</label>
+			<input type="text" name="cep" value="" class="form-control">
+			<button type="submit" class="btn btn-primary">Buscar</button>
+		</form>
+
 		<form action="/usuario/incluir" method="post" class="w-50">
-		
-			<input type="text" class="form-control form-control-lg mt-3" 
-			placeholder="Nome" name="nome"> 
-			
-			<input type="text" class="form-control form-control-lg mt-3" 
-				placeholder="E-mail" name="email"> 
-			
-			<input type="password" class="form-control form-control-lg mt-3" 
-				placeholder="Senha"	name="senha"> 
-				
-			<div class="d-flex justify-content-around">
-				<div class="form-check form-switch mt-3">
-					<label class="form-check-label" for="adm">Administrador</label> 
-					<input class="form-check-input" type="radio" id="adm" name="tipo" value="1">
-				</div>
-				<div class="form-check form-switch mt-3">
-					<label class="form-check-label" for="funcionario">Desenvolvedor</label>
-					<input class="form-check-input" type="radio" id="desenvolvedor"	name="tipo" value="2">
-				</div>
+
+			<div class="mb-3">
+				<label for="nome" class="form-label">Nome:</label> 
+				<input type="text" class="form-control" name="nome" id="nome" placeholder="insira o seu nome">
 			</div>
+			
+			<div class="mb-3">
+				<label for="email" class="form-label">E-mail:</label> 
+				<input type="email" class="form-control" name="email" id="email" placeholder="exemplo@gmail.com">
+			</div>
+			
+			<div class="mb-3">
+				<label for="senha" class="form-label">Senha:</label> 
+				<input type="password" class="form-control" name="senha" id="senha" placeholder="insira sua senha">
+			</div>
+			
+			<c:import url="/WEB-INF/jsp/endereco/cadastro.jsp"/>
+
 			<button type="submit" class="btn btn-outline-secondary mt-5">Cadastrar</button>
 		</form>
 	</div>

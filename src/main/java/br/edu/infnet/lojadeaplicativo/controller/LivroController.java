@@ -14,44 +14,52 @@ import br.edu.infnet.lojadeaplicativo.model.service.LivroService;
 
 @Controller
 public class LivroController {
-    @Autowired
-    private LivroService livroService;
 
-    private String msgAlerta;
+	@Autowired
+	private LivroService livroService;
 
-    @GetMapping(value = "/livro")
-    public String telaCadastro() {
-        return "livro/cadastro";
-    }
+	private String msg;
 
-    @GetMapping(value = "/livro/lista")
-    public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
-        
-    	model.addAttribute("livros", livroService.obterLista(usuario));
-        model.addAttribute("mensagem", msgAlerta);
-        
-        msgAlerta = null;
+	@GetMapping(value = "/livro")
+	public String telaCadastro() {
+		return "livro/cadastro";
+	}
 
-        return "livro/lista";
-    }
+	@GetMapping(value = "/livro/lista")
+	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 
-    @PostMapping(value = "/livro/incluir")
-    public String incluir(Livro livro, @SessionAttribute("usuario") Usuario usuario) {
-    	
-    	livro.setUsuario(usuario);
-    	livroService.incluir(livro);
+		model.addAttribute("livros", livroService.obterLista(usuario));
+		model.addAttribute("mensagem", msg);
 
-        msgAlerta = "Inclusão realizada com sucesso!";
+		msg = null;
 
-        return "redirect:/livro/lista";
-    }
+		return "livro/lista";
+	}
 
-    @GetMapping(value = "/livro/{id}/excluir")
-    public String excluir(@PathVariable Integer id) {
-    	livroService.excluir(id);
+	@PostMapping(value = "/livro/incluir")
+	public String incluir(Livro livro, @SessionAttribute("usuario") Usuario usuario) {
 
-        msgAlerta = "Exclusão realizada com sucesso!";
+		livro.setUsuario(usuario);
+		livroService.incluir(livro);
 
-        return "redirect:/livro/lista";
-    }
+		msg = "Livro cadastrado com sucesso!";
+
+		return "redirect:/livro/lista";
+	}
+
+	@GetMapping(value = "/livro/{id}/excluir")
+	public String excluir(@PathVariable Integer id) {
+
+		try {
+			livroService.excluir(id);
+
+			msg = "Livro excluído com sucesso!";
+		}
+
+		catch (Exception e) {
+			msg = "Impossível excluir o livro!";
+		}
+
+		return "redirect:/livro/lista";
+	}
 }

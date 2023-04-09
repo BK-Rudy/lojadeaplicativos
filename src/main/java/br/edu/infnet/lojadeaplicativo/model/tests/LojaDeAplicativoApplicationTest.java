@@ -42,18 +42,18 @@ public class LojaDeAplicativoApplicationTest {
 
 					switch (campos[0].toUpperCase()) {
 					case "C":
-						usuario = new Usuario(campos[1], campos[2], campos[3], campos[4]);
+						usuario = new Usuario(campos[1], campos[2], campos[3]);
 						Pedido p1 = new Pedido();
 						sbOut.append(p1.obterPedido() + "\r\n");
 						break;
 
 					case "J":
-						Jogo j1 = new Jogo(campos[1], Float.valueOf(campos[2]), campos[3], campos[4], campos[5], Integer.valueOf(campos[6]));
+						Jogo j1 = new Jogo(campos[1], Float.valueOf(campos[2]), campos[3], campos[4], campos[5], Boolean.valueOf(campos[6]));
 						sbOut.append(j1.getAplicativo() + "\r\n");
 						break;
 
 					case "A":
-						App a1 = new App(campos[1], Float.valueOf(campos[2]), campos[3], Integer.valueOf(campos[4]), campos[5], Integer.valueOf(campos[6]));
+						App a1 = new App(campos[1], Float.valueOf(campos[2]), campos[3], Boolean.valueOf(campos[4]), campos[5], Integer.valueOf(campos[6]));
 						sbOut.append(a1.getAplicativo() + "\r\n");
 						break;
 

@@ -38,7 +38,7 @@ public class AppLoader implements ApplicationRunner {
 
 					campos = linha.split(";");
 
-					App app = new App(campos[1], Float.valueOf(campos[2]), campos[3], Integer.valueOf(campos[4]), campos[5], Integer.valueOf(campos[6]));
+					App app = new App(campos[1], Float.valueOf(campos[2]), campos[3], Boolean.valueOf(campos[4]), campos[5], Integer.valueOf(campos[6]));
 					
 					Usuario usuario = new Usuario();
 					usuario.setId(1);

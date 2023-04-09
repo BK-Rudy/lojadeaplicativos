@@ -31,7 +31,6 @@ public class AcessoControllerr {
 	public String login(Model model, @RequestParam String email, @RequestParam String senha) {
 		
 		Usuario usuario = new Usuario(email, senha);
-		
 		usuario = usuarioService.autenticar(usuario);
 
 		if(usuario != null) {
@@ -41,7 +40,7 @@ public class AcessoControllerr {
 			return "redirect:/home";
 		}
 		
-		model.addAttribute("mensagem", "As credenciais para o e-mail "+ email +" estão incorretas!");
+		model.addAttribute("mensagem", "As credenciais de acesso para o e-mail "+ email +" estão incorretas!");
 
 		return telaLogin();
 	}

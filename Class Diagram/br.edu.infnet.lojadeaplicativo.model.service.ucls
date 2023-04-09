@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="br.edu.infnet.lojadeaplicativo.model.service.ClienteService" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/model/service/ClienteService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="212" x="149" y="117"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="br.edu.infnet.lojadeaplicativo.model.service.JogoService" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/model/service/JogoService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="203" x="401" y="117"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="br.edu.infnet.lojadeaplicativo.model.service.PedidoService" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/model/service/PedidoService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="212" x="644" y="117"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="br.edu.infnet.lojadeaplicativo.model.service.UsuarioService" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/model/service/UsuarioService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="149" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="br.edu.infnet.lojadeaplicativo.model.service.ProdutoService" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/model/service/ProdutoService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="402" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="br.edu.infnet.lojadeaplicativo.model.service.LivroService" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/model/service/LivroService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="653" y="437"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="br.edu.infnet.lojadeaplicativo.model.service.AppService" 
+    project="lojadeaplicativo" 
+    file="/lojadeaplicativo/src/main/java/br/edu/infnet/lojadeaplicativo/model/service/AppService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="895" y="437"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

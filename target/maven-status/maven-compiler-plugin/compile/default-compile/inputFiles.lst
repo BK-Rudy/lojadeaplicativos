@@ -11,6 +11,8 @@ C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativ
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\ClienteLoader.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\tests\ClienteTest.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\UsuarioLoader.java
+C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\domain\Endereco.java
+C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\controller\EnderecoController.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\repository\UsuarioRepository.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\AppLoader.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\tests\LojaDeAplicativoApplicationTest.java
@@ -22,6 +24,7 @@ C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativ
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\exceptions\AnoLancamentoNaoPreenchidoException.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\domain\Livro.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\domain\Cliente.java
+C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\service\EnderecoService.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\controller\UsuarioController.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\controller\AppController.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\repository\PedidoRepository.java
@@ -34,6 +37,7 @@ C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativ
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\repository\AppRepository.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\LivroLoader.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\tests\PedidoTest.java
+C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\clients\EnderecoClient.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\domain\Usuario.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\model\exceptions\FormatoNaoPreenchidoException.java
 C:\Users\bruno\git\lojadeaplicativos\src\main\java\br\edu\infnet\lojadeaplicativo\controller\AcessoControllerr.java

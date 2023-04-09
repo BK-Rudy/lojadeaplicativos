@@ -3,6 +3,8 @@ package br.edu.infnet.lojadeaplicativo.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.lojadeaplicativo.model.domain.Cliente;
@@ -28,6 +30,6 @@ public class ClienteService {
 	}
 	
 	public Collection<Cliente> obterLista(Usuario usuario) {
-		return (Collection<Cliente>) clienteRepository.ObterLista(usuario.getId());
+		return (Collection<Cliente>) clienteRepository.obterLista(usuario.getId(), Sort.by(Direction.ASC, "nome"));
 	}
 }

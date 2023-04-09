@@ -12,27 +12,36 @@ import br.edu.infnet.lojadeaplicativo.model.service.ProdutoService;
 
 @Controller
 public class ProdutoController {
-    @Autowired
+    
+	@Autowired
     private ProdutoService produtoService;
 
-    private String msgAlerta;
+    private String msg;
 
     @GetMapping(value = "/produto/lista")
     public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
-        model.addAttribute("produtos", produtoService.obterLista(usuario));
+       
+    	model.addAttribute("produtos", produtoService.obterLista(usuario));
+        model.addAttribute("mensagem", msg);
         
-        model.addAttribute("mensagem", msgAlerta);
-        msgAlerta = null;
+        msg = null;
 
         return "produto/lista";
     }
 
     @GetMapping(value = "/produto/{id}/excluir")
     public String excluir(@PathVariable Integer id) {
-    	produtoService.excluir(id);
+    	 
+    	try {
+             produtoService.excluir(id);
 
-        msgAlerta = "Exclussão realizada!";
-
-        return "redirect:/produto/lista";
+             msg = "Produto excluído com sucesso!";
+         } 
+    	
+    	catch (Exception e) {
+             msg = "Impossível excluir o produto!";
+         }
+         
+         return "redirect:/produto/lista";
     }
 }

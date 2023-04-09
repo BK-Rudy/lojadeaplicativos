@@ -28,7 +28,6 @@ public class UsuarioController {
 	public String telaLista(Model model) {
 
 		model.addAttribute("usuarios", usuarioService.obterLista());
-		
 		model.addAttribute("mensagem", msg);
 		
 		msg = null;
@@ -38,7 +37,6 @@ public class UsuarioController {
 
 	@PostMapping(value = "/usuario/incluir")
 	public String incluir(Usuario usuario) {
-		System.out.println("Inclusao realizada com sucesso!!!" + usuario);
 
 		usuarioService.incluir(usuario);
 		
@@ -50,10 +48,16 @@ public class UsuarioController {
 	@GetMapping(value="/usuario/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		usuarioService.excluir(id);
+		try {
+            usuarioService.excluir(id);
+
+            msg = "Usuário excluído com sucesso!";
+        } 
 		
-		msg = "A exclusão do usuário " + id + " foi realizada com sucesso!";
-		
-		return "redirect:/usuario/lista";
+		catch (Exception e) {
+            msg = "Impossível excluir o usuário!";
+        }
+
+        return "redirect:/usuario/lista";
 	}
 }
